@@ -11,9 +11,9 @@
 #ifndef __clock_h_included__
 #define	__clock_h_included__
 
-#define F_CPU           12000000L   /* 12MHz */
+#define F_CPU           16000000L   /* 12MHz */	//ZP
 #define TIMERVALUE      TCNT0
-#define CLOCK_T_320us	60
+#define CLOCK_T_320us	80	//old=60 to 80//ZP
 
 #ifdef __AVR_ATmega8__
 #define TCCR0B  TCCR0

@@ -1,3 +1,23 @@
+This is the README file for Ejaaduino USBasp firmware.
+
+We have just edited the USBasp firmware to work on Ejaaduino, the edits are mentioned in the changel log.
+
+the code is edited to reflect Ejaaduino v2.0
+
+those having Ejaaduino v1.0 (the first one) should use the mentioned HEX file..!
+Ejaaduino_USBasp\bin\firmware\USBasp_ejaaduinoV1.hex
+
+The HOW-TO for burning the firmware is simple,
+use the Ejaaduino App..!
+
+For any queries/suggestions/anything regarding Ejaaduino
+contact us at: ejaaduino@ejaad.com.pk
+or join in on FB at: http://facebook.com/groups/Ejaaduino
+Ejaad Tech (http://ejaad.com.pk)
+
+TODO: update schematic and add quick use guide
+
+==========START OF USBasp ReadMe==========
 This is the README file for USBasp.
 
 USBasp is a USB in-circuit programmer for Atmel AVR controllers. It simply

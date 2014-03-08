@@ -1,3 +1,11 @@
+Ejaaduino USBasp
+------------------------
+- clone of usbasp.2011-05-28 (v1.4)
+- edited to work on Ejaaduino v2 hardware
+- hex files provided with source for both Ejaaduino v1 and v2
+- Note: Ejaaduino hardware is 16MHz
+
+
 usbasp.2011-05-28 (v1.4)
 ------------------------
 - added TPI support for ATTiny4/5/6/10 (by Slawomir Fraś)

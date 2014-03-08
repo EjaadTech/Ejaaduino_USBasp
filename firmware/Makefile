@@ -33,7 +33,7 @@ help:
 	@echo "       TARGET=${TARGET}"
 	@echo "       LFUSE=${LFUSE}"
 	@echo "       HFUSE=${HFUSE}"
-	@echo "       CLOCK=12000000"
+	@echo "       CLOCK=16000000"
 	@echo "       ISP=${ISP}"
 	@echo "       PORT=${PORT}"
 

@@ -2,11 +2,14 @@
  * USBasp - USB in-circuit programmer for Atmel AVR controllers
  *
  * Thomas Fischl <tfischl@gmx.de>
+ * Edited by Zaid Pirwani <zaidpirwani@ejaad.com.pk>
+ *Ejaaduino v2
  *
  * License........: GNU GPL v2 (see Readme.txt)
- * Target.........: ATMega8 at 12 MHz
+ * Target.........: ATMega8 at 16 MHz on Ejaaduino v2 circuit board
  * Creation Date..: 2005-02-20
- * Last change....: 2009-02-28
+ * Last change....: 2009-02-28	//original USBasp
+ * Last change....: 2014-03-08	//original USBasp
  *
  * PC2 SCK speed option.
  * GND  -> slow (8khz SCK),
@@ -53,7 +56,7 @@ uchar usbFunctionSetup(uchar data[8]) {
 		/* set compatibility mode of address delivering */
 		prog_address_newmode = 0;
 
-		ledRedOn();
+		//ledRedOn();	//ZP
 		ispConnect();
 
 	} else if (data[1] == USBASP_FUNC_DISCONNECT) {
@@ -140,7 +143,7 @@ uchar usbFunctionSetup(uchar data[8]) {
 
 		/* RST low */
 		ISP_OUT &= ~(1 << ISP_RST);
-		ledRedOn();
+		//ledRedOn();	//ZP
 
 		clockWait(16);
 		tpi_init();
@@ -304,13 +307,15 @@ int main(void) {
 	uchar i, j;
 
 	/* no pullups on USB and ISP pins */
-	PORTD = 0;
-	PORTB = 0;
-	/* all outputs except PD2 = INT0 */
-	DDRD = ~(1 << 2);
+	PORTD = (1 << 6);	//ZP	- 	PORTD = 0;
+	PORTB = 0;	//ZP	- 		PORTB = 0;
+	/* all outputs except PD2 = INT0 and PD7, PD6(boot button)*/
+	DDRD = ~((1 << 2)|(1 << 6)|(1 << 7));	//ZP - 	DDRD = ~(1 << 2);
+		
 
 	/* output SE0 for USB reset */
 	DDRB = ~0;
+	DDRD = ~(1 << 6);	//ZP
 	j = 0;
 	/* USB Reset by device only required on Watchdog Reset */
 	while (--j) {
@@ -321,6 +326,7 @@ int main(void) {
 	}
 	/* all USB and ISP pins inputs */
 	DDRB = 0;
+	DDRD = ~((1 << 2)|(1 << 6)|(1 << 7));	//ZP
 
 	/* all inputs except PC0, PC1 */
 	DDRC = 0x03;
